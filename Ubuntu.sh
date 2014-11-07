@@ -3,12 +3,12 @@
 # Author : mogu                            
 # CTime  : 2014.11.06 
 
-#SoftWare pre Install
+echo -e "Install Program make by mogu!!!\n\n"
 #设置更新源，更新系统。
-sudo apt-get update
+#sudo apt-get update
 #sudo apt-get dist-upgrade
-sudo apt-get upgrade -y
-echo -e "Begining install SoftWare which is always needed!\n"
+#sudo apt-get upgrade -y
+echo -e "Begining install SoftWare which is always needed!\n\n"
 #-------------------------------------------
 #---------     删除一些没用的软件       ------------
 #--------------------------------------force-yes  -y-------
@@ -20,9 +20,9 @@ echo -e "Begining install SoftWare which is always needed!\n"
 #---------     常用软件     ---------------------
 #-------------------------------------------
 #安装vim代替vi
-#sudo apt-get install --force-yes  -y vim
-#echo "alias vi=vim " >> ~/.bashrc
-#source ~/.bashrc
+sudo apt-get install --force-yes  -y vim
+echo "alias vi=vim " >> ~/.bashrc
+source ~/.bashrc
 
 #开始安装右键打开终端
 sudo apt-get -y install nautilus-open-terminal
@@ -32,7 +32,7 @@ sudo apt-get -y install nautilus-open-terminal
 sudo apt-get -y install firfox
 
 #安装解码器、flash播放器、java虚拟机、微软字体
-sudo apt-get install ubuntu-restricted-extras
+sudo apt-get -y install ubuntu-restricted-extras
 
 #安装音频解码器
 sudo apt-get -y install ffmpeg
@@ -42,8 +42,8 @@ sudo apt-get -y install mplayer-fonts mplayer mplayer-skins
 sudo apt-get -y install f-spot
 
 #安装飞信
-#sudo apt-add-repository ppa:happyaron/ppa
-#sudo apt-get update
+sudo apt-add-repository ppa:happyaron/ppa
+sudo apt-get update
 sudo apt-get install --force-yes  -y openfetion
 #开启飞信使用openfetion命令即可
 
@@ -91,12 +91,14 @@ sudo apt-get install gnome-paint
 #安装的这些工具如果不设置桌面快捷方式的话,都可以在桌面左上角的Dash中通过关键字查找找到
 
 #主题安装工具
-sudo apt-add-repository ppa:s-lagui
-sudo apt-get update
-sudo apt-get install gstyle
+#sudo apt-add-repository ppa:s-lagui
+#sudo apt-get update
+#sudo apt-get install gstyle
 
 #安装rar zip p7zip-full p7zip-rar支持  
 sudo apt-get -y install rar unrar zip unzip p7zip-full p7zip-rar
 #安装g++编译器  
 sudo apt-get -y install g++
-echo -e "All SoftWare have been Installed!\n"
+
+
+echo -e "All SoftWare have been Installed!!!\n\n"
