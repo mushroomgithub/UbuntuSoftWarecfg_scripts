@@ -1,0 +1,212 @@
+
+
+ALL UNANSWERED 
+
+
+
+search or ask your question
+
+
+
+
+
+ 
+Ask Your Question 
+
+
+
+
+
+
+
+
+1
+ 
+
+
+
+
+
+Accessing multiple kinects in ROS Hydro
+ Kinect
+ hydro
+ 
+
+
+
+
+asked Oct 30 '13 
+
+
+Athoesen 
+269 ¡ñ22 ¡ñ33 ¡ñ43 http://www.google.com/ 
+
+
+updated Apr 21 '14 
+
+
+ngrennan 
+1 ¡ñ1 
+
+I've looked into modifying the launch file as in this example: http:// [Not enough karma for links] answers.ros.org/question/57938/multiple-kinects/
+ 
+However, it appears that the launch file I have is different from what's listed. Is this a separate script to run multiple launch files and if so, how would I go about that from the default debian packages that I've downloaded? I'm working in ROSHydro (obviously) and Ubuntu 12.04. I'm relatively new to Linux, Kinect, and ROS and have been tasked with setting up a multiple-Kinect system in my lab. Since September is the first time I've used any of these, I'm a little lost. I've got a better idea of Linux structure but I have minimal coding experience before this so it's been a "trial by fire" type thing.
+ 
+Currently I have no problem launching the OpenNI driver and accessing the normal camera, monochrome, and depth map camera images. The stream seems to be smooth and have no issues. I have three open buses (not USB ports but buses) for three Kinects, which is where I'd eventually like to go.
+ 
+Any recent questions that I've missed involving multiple Kinects and ROSHydro specifically?
+ 
+
+
+
+
+add a comment
+ 
+
+
+2 answers 
+
+Sort by ? oldest newest most voted 
+
+
+
+
+
+
+
+2
+ 
+
+
+
+
+
+
+
+answered Nov 8 '13 
+
+
+Stephane.M 
+764 ¡ñ12 ¡ñ15 ¡ñ28 http://people.isir.upmc.f... 
+
+Here is a better way to do it : a launch file launching all you need :
+ <launch>
+
+  <!-- Parameters possible to change-->
+    <arg name="camera1_id" default="1@0" /><!-- here you can change 1@0 by the serial number -->
+    <arg name="camera2_id" default="2@0" /><!-- here you can change 2@0 by the serial number -->
+    <arg name="camera3_id" default="3@0" /><!-- here you can change 3@0 by the serial number -->
+    <arg name="depth_registration" default="true" />
+
+  <!-- Default parameters-->
+    <arg name="camera1_name" default="kinect1" />
+    <arg name="camera2_name" default="kinect2" />
+    <arg name="camera3_name" default="kinect3" />
+
+ <!-- Putting the time back to real time-->
+    <rosparam>
+       /use_sim_time : false
+    </rosparam>
+
+<!-- Openning Rviz for visualization-->
+<node name="rviz" pkg="rviz" type="rviz"/>
+
+  <!-- Launching first kinect-->
+    <include file="$(find openni_launch)/launch/openni.launch">
+        <arg name="device_id" value="$(arg camera1_id)" />
+        <arg name="camera" value="$(arg camera1_name)" />
+        <arg name="depth_registration" value="$(arg depth_registration)" />
+     </include>
+
+ <!-- Launching second kinect-->
+    <include file="$(find openni_launch)/launch/openni.launch">
+        <arg name="device_id" value="$(arg camera2_id)" />
+        <arg name="camera" value="$(arg camera2_name)" />
+        <arg name="depth_registration" value="$(arg depth_registration)" />
+     </include>
+
+<!-- Launching third kinect-->
+    <include file="$(find openni_launch)/launch/openni.launch">
+    <arg name="device_id" value="$(arg camera3_id)" />
+    <arg name="camera" value="$(arg camera3_name)" />
+    <arg name="depth_registration" value="$(arg depth_registration)" />
+    </include>
+
+  </launch> 
+I hope it'll help you :-)
+ 
+link 
+
+Comments
+
+
+
+
+
+
+
+
+
+I'm unsure why roslaunch refuses to recognize my launch file. I didn't want to modify the existing one so I've been trying to do the command "roslaunch openni_launch openni3.launch" with the openni3.launch file giving commands to launch all three. Is there something in the architecture I'm missing?
+Athoesen (Dec 13 '13)
+
+
+
+
+
+
+
+I tried using this command: roslaunch example_launch example.launch And got this: [example.launch] is neither a launch file in package [example_launch] nor is [example_launch] a launch file name example.launch is embedded in a launch folder within example_launch, I am unsure what's wrong.
+Athoesen (Dec 16 '13)
+
+
+
+
+
+
+
+The error is that you didn't add the package "example_launch" to your ros path... try to do roscd example_launch to check that your package is added to you path correctly.
+Stephane.M (Dec 18 '13)
+
+
+
+
+
+
+
+Thank you for this, it is currently working to launch all of my Kinects at once.
+Athoesen (Jan 8 '14)
+
+
+add a comment
+ 
+
+
+
+
+
+
+0
+ 
+
+
+
+
+
+
+
+answered Nov 6 '13 
+
+
+Athoesen 
+269 ¡ñ22 ¡ñ33 ¡ñ43 http://www.google.com/ 
+
+I figured it out by using a work around that had been posted for old versions. Rather than write a script I manually changed the identification when the kinects are launched in the command line window. In the code, a modification exists which will call the first device on a bus instead of the first device overall. For example:
+ 
+roslaunch openni_launch openni.launch camera:=kinect_1 device_id:=1@0 roslaunch openni_launch openni.launch camera:=kinect_2 device_id:=2@0
+ 
+Then simply use the normal functions but with kinect_1 instead of camera.
+ 
+For example:
+ 
+rosrun image_view image_view image:=/kinect_1/rgb/image_color rosrun image_view disparity_view image:=/kinect_1/depth/disparity rosrun image_view image_view image:=/kinect_1/depth/image
