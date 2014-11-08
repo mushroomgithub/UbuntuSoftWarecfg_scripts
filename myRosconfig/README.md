@@ -16,16 +16,15 @@ cp ~/myRosconfig/launch.txt /opt/ros/groovy/share/openni_launch/launch/mytest.la
 --------
 **最后一步,具体操作**
 ---
-For example:
-    打开两个节点:
+#For example:
+##打开两个节点:
      roslaunch openni_launch openni.launch camera:=kinect_1 device_id:=1@0
      roslaunch openni_launch openni.launch camera:=kinect_2 device_id:=2@0
 
 Then simply use the normal functions but with kinect_1 instead of camera.
 
-
-For example:
-rgb,视差图和深度图
+#For example:
+##rgb,视差图和深度图
 rosrun image_view image_view image:=/kinect_1/rgb/image_color 
 rosrun image_view disparity_view image:=/kinect_1/depth/disparity rosrun image_view image_view image:=/kinect_1/depth/image
 
