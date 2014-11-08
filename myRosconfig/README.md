@@ -13,7 +13,7 @@
 #最后一步,具体操作
 ##*For example:*
 ####打开两个节点:
-     * roslaunch openni_launch openni.launch camera:=kinect_1 device_id:=1@0
+* roslaunch openni_launch openni.launch camera:=kinect_1 device_id:=1@0
      * roslaunch openni_launch openni.launch camera:=kinect_2 device_id:=2@0
 
 Then simply use the normal functions but with kinect_1 instead of camera.
