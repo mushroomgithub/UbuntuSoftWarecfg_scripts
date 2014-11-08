@@ -24,3 +24,6 @@ Then simply use the normal functions but with kinect_1 instead of camera.
      rosrun image_view disparity_view image:=/kinect_1/depth/disparity   
      rosrun image_view image_view image:=/kinect_1/depth/image  
 
+#Find Me
+*you can find me at [mushroomgithub](https://github.com/mushroomgithub)
+*if you watch me ,I will quite happy.
