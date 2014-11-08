@@ -1,49 +1,20 @@
-
-
 ALL UNANSWERED 
 
-
-
 search or ask your question
-
-
-
-
-
  
 Ask Your Question 
 
-
-
-
-
-
-
-
 1
  
-
-
-
-
-
 Accessing multiple kinects in ROS Hydro
  Kinect
  hydro
- 
-
-
-
-
 asked Oct 30 '13 
-
 
 Athoesen 
 269 ¡ñ22 ¡ñ33 ¡ñ43 http://www.google.com/ 
 
-
 updated Apr 21 '14 
-
 
 ngrennan 
 1 ¡ñ1 
@@ -56,35 +27,16 @@ Currently I have no problem launching the OpenNI driver and accessing the normal
  
 Any recent questions that I've missed involving multiple Kinects and ROSHydro specifically?
  
-
-
-
-
 add a comment
  
-
 
 2 answers 
 
 Sort by ? oldest newest most voted 
 
-
-
-
-
-
-
 2
  
-
-
-
-
-
-
-
 answered Nov 8 '13 
-
 
 Stephane.M 
 764 ¡ñ12 ¡ñ15 ¡ñ28 http://people.isir.upmc.f... 
@@ -139,64 +91,24 @@ link
 
 Comments
 
-
-
-
-
-
-
-
-
 I'm unsure why roslaunch refuses to recognize my launch file. I didn't want to modify the existing one so I've been trying to do the command "roslaunch openni_launch openni3.launch" with the openni3.launch file giving commands to launch all three. Is there something in the architecture I'm missing?
 Athoesen (Dec 13 '13)
 
-
-
-
-
-
-
 I tried using this command: roslaunch example_launch example.launch And got this: [example.launch] is neither a launch file in package [example_launch] nor is [example_launch] a launch file name example.launch is embedded in a launch folder within example_launch, I am unsure what's wrong.
 Athoesen (Dec 16 '13)
-
-
-
-
-
-
 
 The error is that you didn't add the package "example_launch" to your ros path... try to do roscd example_launch to check that your package is added to you path correctly.
 Stephane.M (Dec 18 '13)
 
 
-
-
-
-
-
 Thank you for this, it is currently working to launch all of my Kinects at once.
 Athoesen (Jan 8 '14)
 
-
 add a comment
  
-
-
-
-
-
-
 0
  
-
-
-
-
-
-
-
 answered Nov 6 '13 
-
 
 Athoesen 
 269 ¡ñ22 ¡ñ33 ¡ñ43 http://www.google.com/ 
