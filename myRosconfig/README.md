@@ -6,7 +6,6 @@
 >1.首先根据Ros.pdf第四章,第五章,第十章,将Ros groovy配置完成.     
 >2.配置完成ros groovy之后,此时无论我们怎么操作,都能实现一个kinect的rgb,深度图,视差图,等等功能一般实现,现在实验室需要在ros系统下使用多目kinect实现实验室骨骼跟踪,深度图,rgb图的建模,对实验室内的人物,根据这些信息,分析人的行为,可用点云实现.   
 >3.为了实现多目,需要将myRosconfig目录下的launch.txt,clone到本地家目录,之后将launch.txt拷贝到ros安装路径下,默认是安装在/opt/ros/groovy目录下,此时我们需要将此文件拷贝到路径/opt/ros/groovy/share/openni_launch/launch目录下,并将其更名为mytest.launch.   
-----------
 #可以使用以下命令实现:
 cp ~/myRosconfig/launch.txt /opt/ros/groovy/share/openni_launch/launch/mytest.launch
 --------
