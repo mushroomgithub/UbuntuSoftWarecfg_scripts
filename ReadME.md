@@ -4,7 +4,7 @@
 
 * 使用命令:sudo chmod +x Ubuntu.sh   
 * 执行安装脚本程序命令为:
-* sh Ubuntu.sh 或者 ./Ubuntu.sh
+**sh Ubuntu.sh 或者 ./Ubuntu.sh**
 --------------------------------------
 
 
