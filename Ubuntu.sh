@@ -71,9 +71,9 @@ sudo apt-get -y install iptraf
 #安装互联网常用工具
 sudo apt-get install filezilla amsn iptux --force-yes  -y
 #lwqq依靠Ubuntu预装的pidgin通讯程序运行，基于WebQQ3.0协议。涵盖大部分原版QQ的功能，例如传输文件、表情、讨论组、好友备注、本地聊天记录等等。但神奇的是没有个性签名显示
-sudo add-apt-repository ppa:lainme/pidgin-lwqq
-sudo apt-get update
-sudo apt-get install libpurple0 pidgin-lwqq 
+#sudo add-apt-repository ppa:lainme/pidgin-lwqq
+#sudo apt-get update
+#sudo apt-get install libpurple0 pidgin-lwqq 
 
 #堪比迅雷——Uget 下载器,支持多线程下载，断点续传等特性，下载速度非常理想。由aria2作后端，安装方法
 sudo apt-get install uget aria2
@@ -99,6 +99,8 @@ sudo apt-get install gnome-paint
 sudo apt-get -y install rar unrar zip unzip p7zip-full p7zip-rar
 #安装g++编译器  
 sudo apt-get -y install g++
-
-
+#安装smplayer视频播放器
+sudo apt-get -y install smplayer
+#安装星译词王
+sudo apt-get -y stardict
 echo -e "All SoftWare have been Installed!!!\n\n"
