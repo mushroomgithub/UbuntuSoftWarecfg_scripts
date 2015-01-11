@@ -102,5 +102,5 @@ sudo apt-get -y install g++
 #安装smplayer视频播放器
 sudo apt-get -y install smplayer
 #安装星译词王
-sudo apt-get -y stardict
+sudo apt-get -y install stardict
 echo -e "All SoftWare have been Installed!!!\n\n"
